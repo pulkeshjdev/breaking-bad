@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="random quoted form breaking-bad TV series"
+        />
+        <link rel="stylesheet" href="./index.css" />
+        <title>Breaking Bad</title>
+    </head>
+    <main>
+        <img id="brba" src="./brba.png" alt="breaking-bad" />
+        <article class="quote-container">
+            <img src="./heisenberg.png" alt="heisenberg" />
+            <strong id="quote"></strong>
+            <p id="author"></p>
+            <button
+                class="btn"
+                onclick="wrapperFunction()"
+                onmousedown="takeHit()"
+            >
+                Take Another Hit!
+            </button>
+        </article>
+        <audio id="bg-music" autoplay loop>
+            <source src="./background.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="btn-music">
+            <source src="./tight.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+        <script src="./index.js"></script>
+    </main>
+</html>
