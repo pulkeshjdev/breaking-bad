@@ -1,18 +1,40 @@
+
+let f2p = false;
+const tryToPlay = setInterval(() => {
+    const audio = new Audio('./public/background.mp3');
+    audio.volume = 0.01;
+    audio.play()
+        .then(() => {
+            clearInterval(tryToPlay);
+            f2p = true;
+        })
+        .catch(error => {
+            console.info('User has not interacted with document yet.');
+        });
+}, 100);
+
+let allowed = true;
+
 wrapperFunction();
 
 async function wrapperFunction() {
-    var audio = document.getElementById("bg-music");
-    audio.volume = 0.01;
-    const quote = await fetchQuote();
-    modifyDom(quote);
-
-
+    // ! Throttling
+    if (allowed === true) {
+        allowed = false;
+        setTimeout(() => {
+            allowed = true;
+        }, 2000);
+        takeHit();
+        const quote = await fetchQuote();
+        modifyDom(quote);
+    }
 }
 
 function takeHit() {
     let tight = document.getElementById("btn-music");
     tight.volume = 0.02;
-    tight.play();
+    if (f2p)
+        tight.play();
 }
 
 async function fetchQuote() {
